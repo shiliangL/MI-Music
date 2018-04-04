@@ -1,10 +1,14 @@
 <template>
   <div class="Layout">
-    <AppHeader></AppHeader>
-    <Tab></Tab>
-     <keep-alive>
-      <router-view :key="$route.fullpath"></router-view>
-    </keep-alive>
+    <div class="fixedBar">
+      <AppHeader></AppHeader>
+      <Tab></Tab>
+    </div>
+    <div class="content">
+      <keep-alive>
+        <router-view :key="$route.fullpath"></router-view>
+      </keep-alive>
+    </div>
   </div>
 </template>
 
@@ -20,5 +24,10 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-
+.Layout
+  .fixedBar
+    position fixed
+    width :100%
+  .content
+    padding-top: 82px
 </style>

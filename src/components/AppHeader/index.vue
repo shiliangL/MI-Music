@@ -18,6 +18,7 @@ export default {
 .AppHeader
     background :#d43b33
     height :40px
+    width :100%
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.25)
     display :flex
     align-items :center

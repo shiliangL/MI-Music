@@ -25,6 +25,7 @@ export default {
 <style scoped lang="stylus">
 @import '../../styles/variable.styl';
 .Tab {
+  width :100%
   display: flex;
   height: 44px;
   line-height: 44px;
