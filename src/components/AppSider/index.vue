@@ -1,10 +1,8 @@
 <template>
   <div class="AppSider" ref="slider">
       <div class="siderItem" ref="siderItem">
-          <div v-for="(index,item) in siderList" :key="item.id">
+          <div v-for="(item,index) in siderList" :key="index">
              <img :src="item.picUrl" style="width: 375px;">
-            {{item.picUrl}}
-            测试
           </div>
       </div>
       <div class="index"></div>
@@ -76,7 +74,7 @@ export default {
   watch: {
     siderList: {
       handler (val) {
-        console.log(val)
+        console.log(val, 'xx')
       }
     }
 
