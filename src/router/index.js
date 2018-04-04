@@ -12,7 +12,7 @@ export default new Router({
     {
       path: '/',
       name: 'Layout',
-      redirect: 'Find',
+      redirect: '/Find',
       component: Layout,
       children: [
         { path: 'Find', component: Find, name: 'Find' },

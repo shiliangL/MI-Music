@@ -1,15 +1,15 @@
 <template>
   <div class="Tab">
-     <router-link tag="div" class="tab-item" to="/find">
+     <router-link tag="div" class="tab-item" to="/Find">
       <span class="tab-link">发现</span>
     </router-link>
-    <router-link tag="div" class="tab-item" to="/recommend">
-      <span class="tab-link">推荐</span>
-    </router-link>
-    <router-link tag="div" class="tab-item" to="/singer">
+    <router-link tag="div" class="tab-item" to="/Singer">
       <span class="tab-link">歌手</span>
     </router-link>
-    <router-link tag="div" class="tab-item" to="/rank">
+    <router-link tag="div" class="tab-item" to="/Recommend">
+      <span class="tab-link">推荐</span>
+    </router-link>
+    <router-link tag="div" class="tab-item" to="/Rank">
       <span class="tab-link">排行
       </span>
     </router-link>

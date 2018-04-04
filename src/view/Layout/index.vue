@@ -3,7 +3,7 @@
     <AppHeader></AppHeader>
     <Tab></Tab>
      <keep-alive>
-      <router-view></router-view>
+      <router-view :key="$route.fullpath"></router-view>
     </keep-alive>
   </div>
 </template>
