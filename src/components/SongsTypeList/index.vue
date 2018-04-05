@@ -1,12 +1,12 @@
 <template>
-  <div class="TitleGroupItem">
+  <div class="SongsTypeList">
       <div class="title">{{title}}</div>
       <div class="row cf">
         <div v-for="(item,index) in options" :key="index" class="row-item cf">
             <div class="img">
-              <img :src="item.picUrl" alt="">
+              <img :src="item.imgurl" alt="">
             </div>
-            <p class="desc" v-text="item.songListDesc"></p>
+            <p class="desc" v-text="item.dissname"></p>
         </div>
       </div>
   </div>
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'TitleGroupItem',
+  name: 'SongsTypeList',
   props: {
     options: {
       type: Array
@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.TitleGroupItem {
+.SongsTypeList {
   .title {
     border-left: 2px solid #d43b33;
     position: relative;

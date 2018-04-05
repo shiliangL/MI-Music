@@ -1,27 +1,35 @@
 <template>
   <div class="Recommend">
-    <!-- <AppSider :siderList="page.slider"></AppSider> -->
-    <AwesomeSwiper :siderList="page.slider"></AwesomeSwiper>
-    <TitleGroupItem title="歌曲列表" :options="page.songList"></TitleGroupItem>
-    <TitleGroupItem title="电台" :options="page.radioList"></TitleGroupItem>
+    <ViewScroll :data="page.radioList">
+    <div>
+      <!-- <AppSider :siderList="page.slider"></AppSider> -->
+      <AwesomeSwiper :siderList="page.slider"></AwesomeSwiper>
+      <TitleGroupItem title="热门歌单" :options="page.songList"></TitleGroupItem>
+      <SongsTypeList title="分类歌单" :options="page.songsTypeList"></SongsTypeList>
+    </div>
+    </ViewScroll>
   </div>
 </template>
 
 <script>
 import { fetchRecommend } from '@/Api/recommendApi.js'
-import { AppSider, AwesomeSwiper, TitleGroupItem } from '@/components/common.js'
+import { feachSongList } from '@/Api/index.js'
+import { AppSider, AwesomeSwiper, TitleGroupItem, SongsTypeList, ViewScroll } from '@/components/common.js'
 
 export default {
   name: 'Recommend',
   components: {
     AppSider,
     AwesomeSwiper,
-    TitleGroupItem
+    TitleGroupItem,
+    SongsTypeList,
+    ViewScroll
   },
   data () {
     return {
       page: {
         slider: [],
+        songsTypeList: [],
         songList: null,
         radioList: null
       }
@@ -32,6 +40,7 @@ export default {
   },
   mounted () {
     this.fetchData()
+    this.fetchSongsList()
   },
   methods: {
     fetchData () {
@@ -43,10 +52,19 @@ export default {
             songList: result.songList,
             radioList: result.radioList
           })
-          console.log(this.page)
         }
       }).catch((error) => {
         console.log(error)
+      })
+    },
+    fetchSongsList () {
+      feachSongList().then(({data}) => {
+        if (data.code === 0) {
+          console.log(data.data.list)
+          this.$setKeyValue(this.page, {
+            songsTypeList: data.data.list
+          })
+        }
       })
     }
   }
@@ -54,4 +72,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.Recommend
+  height: 100%
+  overflow: hidden
 </style>

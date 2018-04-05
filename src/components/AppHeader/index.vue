@@ -1,10 +1,10 @@
 <template>
   <div class="AppHeader">
     <div class="Header-icon">
-      <slot></slot>
+      <slot><i class="icon iconfont icon-iconquanzinor"></i></slot>
     </div>
     <div class="searchBox">
-      <input class="input" />
+      <input class="input" placeholder="搜索音乐"/>
     </div>
     <div class="Header-icon">
       <slot><i class="icon iconfont icon-22musicplaylist"></i></slot>

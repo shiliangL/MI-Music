@@ -12,6 +12,11 @@ const portfinder = require('portfinder')
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
+//借用这里的无服务器代理接口
+const axios = require('axios')
+const express = require('express')
+let app = express()
+const songsListUrl = 'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg'
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -42,6 +47,25 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,
+    },
+    before(app) {
+      app.get('/api/songsLists', function (req, res) {
+        axios.get(songsListUrl, {
+          headers: {
+            // referer: 'https://y.qq.com/portal/playlist.html',
+            referer: 'https://c.y.qq.com/',
+            host: 'c.y.qq.com'
+          },
+          params: req.query
+        }).then((response) => {
+          res.json(response.data)
+        }).catch((e) => {
+          res.json({
+            code:-1,
+            msg:'请求错误'
+          })
+        })
+      });
     }
   },
   plugins: [
