@@ -29,6 +29,7 @@ export default {
   display: flex;
   height: 44px;
   line-height: 44px;
+  background :#fff;
   font-size: $font-size-medium;
   .tab-item {
     flex: 1;

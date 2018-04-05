@@ -28,6 +28,7 @@ export default {
   .fixedBar
     position fixed
     width :100%
+    z-index 99
   .content
     padding-top: 82px
 </style>

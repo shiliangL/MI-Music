@@ -3,6 +3,8 @@ import App from './App'
 import router from './router'
 import fastclick from 'fastclick'
 import './styles/index.styl'
+import './styles/fonts/iconfont.css'
+import 'swiper/dist/css/swiper.css'
 // 常用方法放到全局
 import './public'
 Vue.config.productionTip = false

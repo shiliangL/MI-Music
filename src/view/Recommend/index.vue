@@ -1,18 +1,22 @@
 <template>
   <div class="Recommend">
-    <AppSider :siderList="page.slider"></AppSider>
-       推荐
+    <!-- <AppSider :siderList="page.slider"></AppSider> -->
+    <AwesomeSwiper :siderList="page.slider"></AwesomeSwiper>
+    <TitleGroupItem title="歌曲列表" :options="page.songList"></TitleGroupItem>
+    <TitleGroupItem title="电台" :options="page.radioList"></TitleGroupItem>
   </div>
 </template>
 
 <script>
 import { fetchRecommend } from '@/Api/recommendApi.js'
-import { AppSider } from '@/components/common.js'
+import { AppSider, AwesomeSwiper, TitleGroupItem } from '@/components/common.js'
 
 export default {
   name: 'Recommend',
   components: {
-    AppSider
+    AppSider,
+    AwesomeSwiper,
+    TitleGroupItem
   },
   data () {
     return {

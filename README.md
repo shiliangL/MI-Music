@@ -61,3 +61,4 @@ cnpm install stylus stylus-loader --save-dev (粑粑安装多次使用报错，�
 -- <router-link> 组件支持用户在具有路由功能的应用中（点击）导航。 通过 to 属性指定目标地址，默认渲染成带有正确链接的 <a> 标签，可以通过配置 tag 属性生成别的标签。另外，当目标路由成功激活时，链接元素自动设置一个表示激活的 CSS 类名。需要配置默认到当前点击视图时,配合redirect: '/Find',到 <router-link tag="div" class="tab-item" to="/Find"></router-link>
 
 > 嵌套路由
+
