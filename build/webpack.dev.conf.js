@@ -17,6 +17,7 @@ const axios = require('axios')
 const express = require('express')
 let app = express()
 const songsListUrl = 'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg'
+const songerLists = 'https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg'
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -53,6 +54,22 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         axios.get(songsListUrl, {
           headers: {
             // referer: 'https://y.qq.com/portal/playlist.html',
+            referer: 'https://c.y.qq.com/',
+            host: 'c.y.qq.com'
+          },
+          params: req.query
+        }).then((response) => {
+          res.json(response.data)
+        }).catch((e) => {
+          res.json({
+            code:-1,
+            msg:'请求错误'
+          })
+        })
+      });
+      app.get('/api/songerLists', function (req, res) {
+        axios.get(songsListUrl, {
+          headers: {
             referer: 'https://c.y.qq.com/',
             host: 'c.y.qq.com'
           },

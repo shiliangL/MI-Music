@@ -44,7 +44,6 @@ export default {
   mounted () {
     setTimeout(() => {
       this.initViewScroll()
-      console.log(this.scroll)
     }, 20)
   },
   methods: {
@@ -77,7 +76,6 @@ export default {
     data () {
       setTimeout(() => {
         this.refresh()
-        console.log('sbsb')
       }, this.refreshDelay)
     }
   }

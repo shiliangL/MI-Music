@@ -29,8 +29,14 @@ export default {
 <style scoped lang="stylus">
 .Layout {
   height: 100%;
+  .fixedBar{
+    position fixed
+    width 100%;
+    z-index 20
+  }
   .content {
     height: 100%;
+    padding-top 84px
   }
 }
 </style>

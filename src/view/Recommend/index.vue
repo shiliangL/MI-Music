@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { fetchRecommend } from '@/Api/recommendApi.js'
+import { fetchRecommend } from '@/Api/jsonpApi.js'
 import { feachSongList } from '@/Api/index.js'
 import { AppSider, AwesomeSwiper, TitleGroupItem, SongsTypeList, ViewScroll } from '@/components/common.js'
 
