@@ -1,7 +1,9 @@
 
 <template>
-  <div ref="ViewScroll">
-    <slot></slot>
+  <div ref="ViewScroll" class="ViewScroll">
+    <div class="conten">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -82,5 +84,11 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus" rel="stylesheet/stylus">
+<style scoped lang="stylus">
+.ViewScroll
+  height: 100%
+  overflow: hidden
+  position relative
+  .conten
+    position relative
 </style>

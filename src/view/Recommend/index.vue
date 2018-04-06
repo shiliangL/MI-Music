@@ -1,12 +1,10 @@
 <template>
   <div class="Recommend">
     <ViewScroll :data="page.radioList">
-    <div>
       <!-- <AppSider :siderList="page.slider"></AppSider> -->
       <AwesomeSwiper :siderList="page.slider"></AwesomeSwiper>
       <TitleGroupItem title="热门歌单" :options="page.songList"></TitleGroupItem>
       <SongsTypeList title="分类歌单" :options="page.songsTypeList"></SongsTypeList>
-    </div>
     </ViewScroll>
   </div>
 </template>
@@ -74,5 +72,4 @@ export default {
 <style scoped lang="stylus">
 .Recommend
   height: 100%
-  overflow: hidden
 </style>

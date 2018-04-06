@@ -13,22 +13,24 @@
 </template>
 
 <script>
-import { AppHeader, Tab } from '@/components/common.js'
+import { AppHeader, Tab, ViewScroll } from '@/components/common.js'
+
 export default {
   components: {
     AppHeader,
-    Tab
+    Tab,
+    ViewScroll
   },
-  name: 'Layout'
+  name: 'Layout',
+  mounted () {}
 }
 </script>
 
 <style scoped lang="stylus">
-.Layout
-  .fixedBar
-    position fixed
-    width :100%
-    z-index 99
-  .content
-    padding-top: 82px
+.Layout {
+  height: 100%;
+  .content {
+    height: 100%;
+  }
+}
 </style>

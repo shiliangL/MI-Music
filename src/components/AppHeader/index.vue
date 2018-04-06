@@ -28,6 +28,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   .searchBox
+    width 40%
     .input
       border-radius: 12px 12px;
       padding-left: 8px;
