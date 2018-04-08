@@ -52,8 +52,8 @@ export default {
         return
       }
       this.scroll = new BScroll(this.$refs.ViewScroll, {
-        // probeType: this.probeType,
-        // click: this.click
+        probeType: this.probeType,
+        click: this.click
       })
     },
     disable () {
@@ -66,6 +66,7 @@ export default {
       this.scroll && this.scroll.refresh()
     },
     scrollTo () {
+      // apply 让 this 指向better-scroll 实例 方便参数传递
       this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments)
     },
     scrollToElement () {

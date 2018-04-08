@@ -1,18 +1,6 @@
 <template>
   <div class="Singer">
-    <ViewScroll :data="pape.list">
-      <ListView :data="pape.list"></ListView>
-    </ViewScroll>
-    <div class="letter-bar">
-      <ul>
-        <li v-for="(item, index) in letterTitle" :data-index="index" class="item" :key="index"
-            :class="{'current':currentIndex===index}">{{item}}
-        </li>
-      </ul>
-    </div>
-    <div class="letter-fixed">
-      <span>测试</span>
-    </div>
+      <ListView :data="pape.list" @selectRow="selectRow"></ListView>
   </div>
 </template>
 
@@ -94,7 +82,11 @@ export default {
         return a.title.charCodeAt(0) - b.title.charCodeAt(0)
       })
       return hot.concat(ret)
+    },
+    selectRow (row) {
+      console.log(row)
     }
+
   }
 }
 </script>
@@ -103,36 +95,4 @@ export default {
 .Singer
   height: 100%;
   overflow hidden
-  .letter-bar
-    position: absolute
-    z-index: 30
-    right: 0
-    top: 50%
-    transform: translateY(-50%)
-    width: 20px
-    padding: 10px 0
-    border-radius: 10px
-    text-align: center
-    background: #f1e1e173;
-    font-family: Helvetica
-    .item
-      padding: 3px
-      line-height: 1
-      font-size: 13px
-      &.current
-        color: $color-theme
-  .letter-fixed
-    position: absolute
-    top: 90px
-    left: 0
-    width: 100%
-    span
-      height: 30px
-      padding-left: 20px
-      font-size: $font-size-small
-  .loading-container
-    position: absolute
-    width: 100%
-    top: 50%
-    transform: translateY(-50%)
 </style>
