@@ -4,7 +4,7 @@
       <div class="row cf">
         <div v-for="(item,index) in options" :key="index" class="row-item cf">
             <div class="img">
-              <img :src="item.picUrl" alt="">
+              <img v-lazy="item.picUrl" alt="">
             </div>
             <p class="desc" v-text="item.songListDesc"></p>
         </div>

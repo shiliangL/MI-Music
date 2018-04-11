@@ -47,7 +47,6 @@ export default {
   watch: {
     data () {
       if (this.Scroll) {
-        console.log('xx')
         this.refresh()
       }
     }
