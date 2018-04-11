@@ -1,6 +1,7 @@
 <template>
   <div class="Singer">
       <ListView :data="pape.list" @selectRow="selectRow"></ListView>
+      <router-view/>
   </div>
 </template>
 

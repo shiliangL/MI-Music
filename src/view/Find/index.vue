@@ -1,23 +1,21 @@
 <template>
   <div class="Find">
-    <ViewScroll>
-      <ul>
-        <li v-for="(item,index) in 100" :key="index">
-        {{item}}
-        </li>
-      </ul>
-    </ViewScroll>
+    <Scroll :data="page.list">
+      <TitleGroupItem title="推荐歌单" :options="page.list"></TitleGroupItem>
+    </Scroll>
   </div>
 </template>
 
 <script>
-import { feachSongList } from '@/Api/index.js'
-import { SongsTypeList, ViewScroll } from '@/components/common.js'
+import { fetchPersonalizedList } from '@/Api/cloudMusicApi.js'
+import { SongsTypeList, ViewScroll, Scroll, TitleGroupItem } from '@/components/common.js'
 export default {
   name: 'Find',
   components: {
+    TitleGroupItem,
     ViewScroll,
-    SongsTypeList
+    SongsTypeList,
+    Scroll
   },
   data () {
     return {
@@ -31,12 +29,10 @@ export default {
   },
   methods: {
     fetchSongsList () {
-      feachSongList().then(({data}) => {
-        if (data.code === 0) {
-          this.$setKeyValue(this.page, {
-            list: data.data.list
-          })
-        }
+      fetchPersonalizedList().then(({result}) => {
+        this.$setKeyValue(this.page, {
+          list: result
+        })
       })
     }
   }
