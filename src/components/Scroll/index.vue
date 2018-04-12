@@ -31,13 +31,16 @@ export default {
     this.$nextTick().then(() => {
       this.initScroll()
     })
+    window.addEventListener('resize', this.refresh)
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.refresh)
   },
   methods: {
     initScroll () {
       this.Scroll = new BScroll(this.$refs['wrapper'], {
 
       })
-
       console.log(this.Scroll)
     },
     refresh () {

@@ -21,18 +21,18 @@ export default {
 <style scoped lang="stylus">
 .AppHeader
   background: #d43b33;
-  height: 40px;
+  height: 80px;
   width: 100%;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
   justify-content: space-between;
   .searchBox
-    width 40%
+    width 70%
     .input
-      border-radius: 12px 12px;
-      padding-left: 8px;
-      height: 26px;
+      border-radius: 60px 60px;
+      padding-left: 20px;
+      height: 60px;
       width: 100%;
       color: rgba(0, 0, 0, 0.3);
       border: none;
@@ -41,9 +41,8 @@ export default {
       outline: none;
       border: 0px;
   .Header-icon
-    width: 40px;
+    width: 80px;
     font-weight 400
     text-align center
-    font-size 14
     color #fff
 </style>

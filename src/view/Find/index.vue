@@ -1,6 +1,8 @@
 <template>
   <div class="Find">
     <Scroll :data="page.list">
+      <div class="siders">
+      </div>
       <TitleGroupItem title="推荐歌单" :options="page.list"></TitleGroupItem>
     </Scroll>
   </div>
@@ -42,4 +44,8 @@ export default {
 <style scoped lang="stylus">
 .Find
   height 100%
+  .siders
+    font-size 16px
+    height 290px;
+    background #ffffff
 </style>

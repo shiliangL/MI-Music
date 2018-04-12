@@ -27,20 +27,20 @@ export default {
 .Tab {
   width :100%
   display: flex;
-  height: 44px;
-  line-height: 44px;
+  height: 70px;
+  align-items center;
   background :#fff;
   font-size: $font-size-medium;
   .tab-item {
     flex: 1;
     text-align: center;
     .tab-link {
-      padding-bottom: 5px;
+      padding-bottom: 10px;
     }
     &.router-link-active {
       .tab-link {
         color: #d43b33
-        border-bottom: 2px solid  #d43b33
+        border-bottom: 4px solid  #d43b33
       }
     }
   }
