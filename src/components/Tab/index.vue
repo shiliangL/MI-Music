@@ -30,7 +30,7 @@ export default {
   height: 70px;
   align-items center;
   background :#fff;
-  font-size: $font-size-medium;
+  font-size: $font-size-tabs;
   .tab-item {
     flex: 1;
     text-align: center;

@@ -42,10 +42,12 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '../../styles/variable.styl';
+
 .Find
   height 100%
   .siders
     font-size 16px
-    height 290px;
+    height 390px;
     background #ffffff
 </style>

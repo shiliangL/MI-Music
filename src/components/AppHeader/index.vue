@@ -21,7 +21,7 @@ export default {
 <style scoped lang="stylus">
 .AppHeader
   background: #d43b33;
-  height: 80px;
+  height: 72px;
   width: 100%;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
   display: flex;
@@ -32,7 +32,7 @@ export default {
     .input
       border-radius: 60px 60px;
       padding-left: 20px;
-      height: 60px;
+      height: 52px;
       width: 100%;
       color: rgba(0, 0, 0, 0.3);
       border: none;
@@ -41,8 +41,10 @@ export default {
       outline: none;
       border: 0px;
   .Header-icon
-    width: 80px;
+    width: 92px;
     font-weight 400
     text-align center
     color #fff
+    i
+     font-size 52px
 </style>

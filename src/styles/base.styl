@@ -1,14 +1,17 @@
 @import "variable.styl"
 
 body, html
-  width: 100%
-  height:100%
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  box-sizing: border-box;
   line-height: 1
   font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback'
   user-select: none
   -webkit-tap-highlight-color: transparent
   background: $color-background
   color: $body-text-color
+  font-size : $body-text-size
   .cf:after
     display: block;
     visibility: hidden;

@@ -37,16 +37,16 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '../../styles/variable.styl';
 .TitleGroupItem {
   .title {
     border-left: 2px solid #d43b33;
     position: relative;
-    margin-bottom: 8px;
     margin-top: 10px;
-    padding-left: 9px;
-    font-size: 16px;
-    height: 20px;
-    line-height: 20px;
+    padding-left: 20px;
+    font-size: $font-size-title
+    height: 80px;
+    line-height: 80px;
   }
 
   .row {
