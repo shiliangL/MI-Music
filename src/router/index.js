@@ -16,13 +16,19 @@ export default new Router({
       redirect: '/Find',
       component: Layout,
       children: [
-        { path: 'Find', component: Find, name: 'Find' },
-        { path: 'Rank', component: Rank, name: 'Rank' },
-        { path: 'Singer',
-          component: Singer,
-          name: 'Singer',
+        { path: '/Find',
+          component: Find,
+          name: 'Find',
           children: [
-            { path: ':id', component: DetailsPage, name: 'DetailsPage' }
+            { path: 'DetailsPage', component: DetailsPage, name: 'DetailsPage' }
+          ]
+        },
+        { path: '/Rank', component: Rank, name: 'Rank' },
+        { path: '/Singer',
+          component: Singer,
+          name: '/Singer',
+          children: [
+            // { path: ':id', component: DetailsPage, name: 'DetailsPage' }
           ]
         },
         { path: 'Recommend', component: Recommend, name: 'Recommend' }

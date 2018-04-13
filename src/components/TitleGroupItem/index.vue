@@ -34,7 +34,6 @@ export default {
   created () {},
   methods: {
     onClick (item) {
-      console.log(item)
       this.$emit('onClick', item)
     }
   }

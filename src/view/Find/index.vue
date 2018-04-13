@@ -4,7 +4,8 @@
       <div class="siders">
         <img :src="item.pic" alt="" v-for="(item,index) in page.banners" :key="index">
       </div>
-      <TitleGroupItem title="推荐歌单" :options="page.list"></TitleGroupItem>
+      <TitleGroupItem title="推荐歌单" :options="page.list" @onClick="onClick"></TitleGroupItem>
+      <router-view></router-view>
     </Scroll>
   </div>
 </template>
@@ -34,7 +35,7 @@ export default {
   },
   methods: {
     fetchSongsList () {
-      fetchPersonalizedList({offset: 0, limit: 6}).then(({result}) => {
+      fetchPersonalizedList({offset: 0, limit: 9}).then(({result}) => {
         this.$setKeyValue(this.page, {
           list: result
         })
@@ -44,6 +45,10 @@ export default {
       fetchBannerList().then(result => {
         this.page.banners = result.banners
       })
+    },
+    onClick (data) {
+      console.log(data)
+      this.$router.push({path: '/Find/DetailsPage'})
     }
   }
 }
