@@ -62,6 +62,5 @@ export default {
   position: relative;
   height: 100%;
   overflow: hidden;
-  background: #ccc;
 }
 </style>

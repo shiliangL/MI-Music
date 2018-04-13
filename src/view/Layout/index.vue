@@ -37,7 +37,7 @@ export default {
   .content {
     height: 100%;
     position :relative
-    top: 84px
+    top: 158px
   }
 }
 </style>

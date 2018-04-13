@@ -21,7 +21,7 @@ export default {
 <style scoped lang="stylus">
 .AppHeader
   background: #d43b33;
-  height: 72px;
+  height: 84px;
   width: 100%;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
   display: flex;

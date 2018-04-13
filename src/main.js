@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueLazyload from 'vue-lazyload'
+import VueTouch from 'vue-touch'
 import App from './App'
 import router from './router'
 import fastclick from 'fastclick'
@@ -14,6 +15,8 @@ Vue.config.productionTip = false
 /* 处理移动端点击300毫秒延迟问题 */
 fastclick.attach(document.body)
 Vue.use(VueLazyload)
+Vue.use(VueTouch)
+
 new Vue({
   el: '#app',
   router,

@@ -27,7 +27,7 @@ export default {
 .Tab {
   width :100%
   display: flex;
-  height: 70px;
+  height: 72px;
   align-items center;
   background :#fff;
   font-size: $font-size-tabs;
