@@ -41,7 +41,6 @@ export default {
       this.Scroll = new BScroll(this.$refs['wrapper'], {
 
       })
-      console.log(this.Scroll)
     },
     refresh () {
       this.scroll && this.scroll.refresh()

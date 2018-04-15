@@ -4,7 +4,8 @@
     <h1>{{shiliangl}}</h1> -->
     <Scroll :data="page.list">
       <div class="siders">
-        <img :src="item.pic" alt="" v-for="(item,index) in page.banners" :key="index">
+        <AppSider :siderList="page.banners" v-if="page.banners.length"></AppSider>
+        <!-- <img :src="item.pic" alt="" v-for="(item,index) in page.banners" :key="index"> -->
       </div>
       <div class="Find-NavList">
         <div v-if="FindNavList" v-for="(item,index) in FindNavList" :key="index">
@@ -21,14 +22,15 @@
 <script>
 import { mapGetters } from 'vuex'
 import { fetchPersonalizedList, fetchBannerList } from '@/Api/cloudMusicApi.js'
-import { SongsTypeList, ViewScroll, Scroll, TitleGroupItem } from '@/components/common.js'
+import { SongsTypeList, ViewScroll, Scroll, TitleGroupItem, AppSider } from '@/components/common.js'
 export default {
   name: 'Find',
   components: {
     TitleGroupItem,
     ViewScroll,
     SongsTypeList,
-    Scroll
+    Scroll,
+    AppSider
   },
   data () {
     return {
@@ -85,12 +87,11 @@ export default {
 .Find
   height 100%
   .siders
+    min-height 1px
     font-size 16px
-    height 390px;
+    // height 390px;
     background #ffffff
     overflow hidden
-    img
-      height 100%
 
   .Find-NavList
     height 200px

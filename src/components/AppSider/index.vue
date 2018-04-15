@@ -1,15 +1,17 @@
 <template>
-  <div class="AppSider" ref="slider">
-      <div class="siderItem" ref="siderItem">
-          <div v-for="(item,index) in siderList" :key="index">
-             <img :src="item.picUrl" style="width: 375px;">
-          </div>
-      </div>
-      <div class="index"></div>
+  <div class="AppSider" ref="AppSider">
+    <div class="container" ref="container">
+        <div v-for="(item,index) in siderList" :key="index">
+            <img :src="item.pic" @load="loadImage">
+        </div>
+    </div>
+    <div class="index"></div>
   </div>
 </template>
 
 <script>
+
+import { addClass } from '@/util/dom.js'
 import BScroll from 'better-scroll'
 export default {
   name: 'AppSider',
@@ -33,42 +35,54 @@ export default {
   mounted () {
     this.$nextTick().then(() => {
       setTimeout(() => {
-        // this.setSliderWidth()
-        // this.initSider()
+        this.setSliderWidth()
+        this.initSider()
       }, 20)
+    })
+    window.addEventListener('resize', () => {
+      this.setSliderWidth(true)
+      if (this.sider) this.sider.refresh()
     })
   },
   created () {
-    console.log(this.siderList)
-    console.log('创建')
+    this.checkloaded = false
   },
   beforeDestroy () {
     window.removeEventListener('resize', () => {
       this.setSliderWidth(true)
-      this.initSider()
     })
   },
   methods: {
     initSider () {
-      this.sider = new BScroll(this.$refs['siderItem'], {
+      this.sider = new BScroll(this.$refs['AppSider'], {
         scrollX: true,
         scrollY: false,
         momentum: false,
-        snap: true,
-        snapThreshold: 0.3,
-        snapSpeed: 400
+        snap: {
+          loop: this.loop,
+          threshold: 0.3,
+          speed: 400
+        }
       })
     },
     setSliderWidth () {
       // 计算包裹的宽度
-      let children = this.$refs['siderItem'].children
+      let children = this.$refs['container'].children
       let width = 0
-      let sliderWidth = this.$refs['slider'].clientWidth
+      let sliderWidth = this.$refs['AppSider'].clientWidth
       for (const item of children) {
+        addClass(item, 'item')
         item.style.width = sliderWidth + 'px'
         width += sliderWidth
       }
-      this.$refs['siderItem'].style.width = width + 'px'
+      if (this.loop) width += 2 * sliderWidth
+      this.$refs['container'].style.width = width + 'px'
+    },
+    loadImage () {
+      if (this.sider && !this.checkloaded) {
+        this.checkloaded = true
+        this.sider.refresh()
+      }
     }
   },
   watch: {
@@ -84,9 +98,25 @@ export default {
 
 <style scoped lang="stylus">
   .AppSider
+    min-height: 1px
+    height 100%
+    position: relative
     overflow hidden
-    .siderItem
+    .container
+      height 100%
+      position: relative
       div
-        width 100%
-        height 230px
+      .item
+        float: left
+        box-sizing: border-box
+        overflow: hidden
+        text-align: center
+        a
+          display: block
+          width: 100%
+          overflow: hidden
+          text-decoration: none
+        img
+          display: block
+          width: 100%
 </style>
