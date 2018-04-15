@@ -36,8 +36,7 @@ export default {
   }
   .content {
     height: 100%;
-    position :relative
-    top: 158px
+    padding-top: 158px
   }
 }
 </style>

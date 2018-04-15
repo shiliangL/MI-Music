@@ -1,16 +1,25 @@
 <template>
   <div class="Find">
+    <!-- <div @click="toggleVX">测试使用 VUEX</div>
+    <h1>{{shiliangl}}</h1> -->
     <Scroll :data="page.list">
       <div class="siders">
         <img :src="item.pic" alt="" v-for="(item,index) in page.banners" :key="index">
       </div>
+      <div class="Find-NavList">
+        <div v-if="FindNavList" v-for="(item,index) in FindNavList" :key="index">
+          <i class="icon iconfont icon-faxian"></i>
+          <p>{{item.name}}</p>
+        </div>
+      </div>
       <TitleGroupItem title="推荐歌单" :options="page.list" @onClick="onClick"></TitleGroupItem>
-      <router-view></router-view>
     </Scroll>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { fetchPersonalizedList, fetchBannerList } from '@/Api/cloudMusicApi.js'
 import { SongsTypeList, ViewScroll, Scroll, TitleGroupItem } from '@/components/common.js'
 export default {
@@ -33,7 +42,23 @@ export default {
     this.fetchSongsList()
     this.fetchBanners()
   },
+  created () {
+    this.FindNavList = [
+      {name: '每日推荐', path: '', icon: 'icon-faxian'},
+      {name: '独家放送', path: '', icon: ''},
+      {name: '精心挑选', path: '', icon: ''},
+      {name: '最新 MV', path: '', icon: ''}
+    ]
+  },
+  computed: {
+    ...mapGetters([
+      'shiliangl'
+    ])
+  },
   methods: {
+    toggleVX () {
+      this.$store.dispatch('SET_ME')
+    },
     fetchSongsList () {
       fetchPersonalizedList({offset: 0, limit: 9}).then(({result}) => {
         this.$setKeyValue(this.page, {
@@ -48,7 +73,8 @@ export default {
     },
     onClick (data) {
       console.log(data)
-      this.$router.push({path: '/Find/DetailsPage'})
+      this.$store.dispatch('VX_SET_PersonalizedData', data)
+      this.$router.push({path: `/Find/${data.id}`})
     }
   }
 }
@@ -56,7 +82,6 @@ export default {
 
 <style scoped lang="stylus">
 @import '../../styles/variable.styl';
-
 .Find
   height 100%
   .siders
@@ -66,4 +91,18 @@ export default {
     overflow hidden
     img
       height 100%
+
+  .Find-NavList
+    height 200px
+    display flex
+    align-items center
+    justify-content center
+    div
+      width calc(100%/4)
+      text-align center
+      font-size $font-size-icons
+    i
+      font-size 50px
+    p
+      padding 16px 0
 </style>

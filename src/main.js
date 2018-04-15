@@ -3,6 +3,7 @@ import VueLazyload from 'vue-lazyload'
 import VueTouch from 'vue-touch'
 import App from './App'
 import router from './router'
+import store from './store'
 import fastclick from 'fastclick'
 import './styles/index.styl'
 import './styles/fonts/iconfont.css'
@@ -20,6 +21,7 @@ Vue.use(VueTouch)
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

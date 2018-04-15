@@ -20,7 +20,7 @@ export default new Router({
           component: Find,
           name: 'Find',
           children: [
-            { path: 'DetailsPage', component: DetailsPage, name: 'DetailsPage' }
+            { path: ':id', component: DetailsPage, name: 'DetailsPage' }
           ]
         },
         { path: '/Rank', component: Rank, name: 'Rank' },

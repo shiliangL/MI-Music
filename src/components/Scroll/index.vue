@@ -59,7 +59,6 @@ export default {
 
 <style  scoped lang="stylus">
 .wrapper {
-  position: relative;
   height: 100%;
   overflow: hidden;
 }
