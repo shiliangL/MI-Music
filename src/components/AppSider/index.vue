@@ -45,9 +45,7 @@ export default {
         this.setSliderWidth()
         this.initSider()
         this.initDotsArray()
-        if (this.autoPlay) {
-          this.autoPlaHander()
-        }
+        if (this.autoPlay) this.autoPlaHander()
       }, 20)
     })
     window.addEventListener('resize', () => {
@@ -127,12 +125,13 @@ export default {
       if (this.sider) this.sider.goToPage(index, 0, 300)
     },
     clickRow (item) {
-
+      if (item) this.$emit('onClick', item)
     },
     loadImage () {
       if (this.sider && !this.checkloaded) {
         this.checkloaded = true
         this.sider.refresh()
+        this.$emit('loadImage')
       }
     }
   },

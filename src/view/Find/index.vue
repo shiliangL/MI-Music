@@ -2,18 +2,20 @@
   <div class="Find">
     <!-- <div @click="toggleVX">测试使用 VUEX</div>
     <h1>{{shiliangl}}</h1> -->
-    <Scroll :data="page.list">
-      <div class="siders">
-        <AppSider :siderList="page.banners" v-if="page.banners.length"></AppSider>
-        <!-- <img :src="item.pic" alt="" v-for="(item,index) in page.banners" :key="index"> -->
-      </div>
-      <div class="Find-NavList">
-        <div v-if="FindNavList" v-for="(item,index) in FindNavList" :key="index">
-          <i class="icon iconfont icon-faxian"></i>
-          <p>{{item.name}}</p>
+    <Scroll :data="page.list" ref="Scroll">
+      <div>
+        <div class="siders">
+          <AppSider :siderList="page.banners" v-if="page.banners.length" @loadImage="loadImage"></AppSider>
+          <!-- <img :src="item.pic" alt="" v-for="(item,index) in page.banners" :key="index"> -->
         </div>
+        <div class="Find-NavList">
+          <div v-if="FindNavList" v-for="(item,index) in FindNavList" :key="index">
+            <i class="icon iconfont icon-faxian"></i>
+            <p>{{item.name}}</p>
+          </div>
+        </div>
+        <TitleGroupItem title="推荐歌单" :options="page.list" @onClick="onClick"></TitleGroupItem>
       </div>
-      <TitleGroupItem title="推荐歌单" :options="page.list" @onClick="onClick"></TitleGroupItem>
     </Scroll>
     <router-view></router-view>
   </div>
@@ -77,6 +79,11 @@ export default {
       console.log(data)
       this.$store.dispatch('VX_SET_PersonalizedData', data)
       this.$router.push({path: `/Find/${data.id}`})
+    },
+    loadImage () {
+      if (this.$refs['Scroll']) {
+        this.$refs['Scroll'].refresh()
+      }
     }
   }
 }

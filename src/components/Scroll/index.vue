@@ -1,15 +1,7 @@
 <template>
   <div class="wrapper" ref="wrapper">
       <div class="content">
-        <div class="list-wrapper">
-          <slot>
-            <ul class="list-content">
-              <li v-for="item in 100" :key="item">
-                {{item}}
-              </li>
-            </ul>
-          </slot>
-        </div>
+        <slot></slot>
       </div>
   </div>
 </template>
@@ -38,7 +30,7 @@ export default {
   },
   methods: {
     initScroll () {
-      this.Scroll = new BScroll(this.$refs['wrapper'], {
+      this.scroll = new BScroll(this.$refs['wrapper'], {
 
       })
     },
@@ -48,8 +40,10 @@ export default {
   },
   watch: {
     data () {
-      if (this.Scroll) {
-        this.refresh()
+      if (this.scroll) {
+        setTimeout(() => {
+          this.refresh()
+        }, 20)
       }
     }
   }
@@ -57,8 +51,7 @@ export default {
 </script>
 
 <style  scoped lang="stylus">
-.wrapper {
+.wrapper
   height: 100%;
   overflow: hidden;
-}
 </style>
