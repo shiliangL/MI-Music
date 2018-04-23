@@ -9,17 +9,19 @@
         <router-view :key="$route.fullpath"></router-view>
       </keep-alive>
     </div>
+    <AppPlayer></AppPlayer>
   </div>
 </template>
 
 <script>
-import { AppHeader, Tab, ViewScroll } from '@/components/common.js'
+import { AppHeader, Tab, ViewScroll, AppPlayer } from '@/components/common.js'
 
 export default {
   components: {
     AppHeader,
-    Tab,
-    ViewScroll
+    AppPlayer,
+    ViewScroll,
+    Tab
   },
   name: 'Layout',
   mounted () {}

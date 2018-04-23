@@ -76,7 +76,6 @@ export default {
       })
     },
     onClick (data) {
-      console.log(data)
       this.$store.dispatch('VX_SET_PersonalizedData', data)
       this.$router.push({path: `/Find/${data.id}`})
     },
@@ -93,6 +92,7 @@ export default {
 @import '../../styles/variable.styl';
 .Find
   height 100%
+  margin-bottom 150px
   .siders
     min-height 1px
     font-size 16px

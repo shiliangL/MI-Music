@@ -24,7 +24,7 @@
 
     <Scroll>
       <div class="container">
-        <div v-for="(item,index) in page.tracks" :key="index" class="list" v-if="page.tracks.length">
+        <div v-for="(item,index) in page.tracks" :key="index" class="list" v-if="page.tracks.length" @click="clickRow(item,index)">
           <div class="index">{{index+1}}</div>
           <div class="songsDc">
             <div class="songmsg">
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import { AppHeader, Scroll } from '@/components/common.js'
 
 import {fetchPersonalizedDetails} from '@/Api/cloudMusicApi'
@@ -88,6 +88,9 @@ export default {
     this.fetchData()
   },
   methods: {
+    ...mapActions([
+      'VX_SET_playList'
+    ]),
     fetchData () {
       if (!this.personalizedData) {
         this.$router.push('/Find')
@@ -100,6 +103,9 @@ export default {
     },
     goback () {
       this.$router.back()
+    },
+    clickRow (item, index) {
+      this.VX_SET_playList(this.page.tracks, index)
     }
   }
 }
