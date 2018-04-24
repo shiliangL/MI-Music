@@ -7,9 +7,10 @@ module.exports = {
             { text: 'Guide', link: '/guide/' },
         ],
         sidebar: [
-            ['/guide/index/', '介绍'],
-            ['/guide/start/', '起步'],
-            ['/guide/example/', '示例']
+            ['/guide/index/', '项目说明'],
+            ['/guide/start/', '项目描述'],
+            ['/guide/api/', '项目API'],
+            ['/guide/example/', '示例说明']
         ]
     },
     serviceWorker: true,
