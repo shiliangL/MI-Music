@@ -10,6 +10,7 @@ import './styles/index.scss'
 
 // 使用公共全局组件
 import './components'
+import './mock'
 
 Vue.use(Vant)
 Vue.config.productionTip = false

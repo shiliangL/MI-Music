@@ -31,6 +31,11 @@ const DaySales = (resolve) => {
     resolve(module)
   })
 }
+const SalesBrands = (resolve) => {
+  import('view/salesBrands').then((module) => {
+    resolve(module)
+  })
+}
 
 export default new Router({
   routes: [
@@ -43,6 +48,7 @@ export default new Router({
         { path: '/progressForm', component: ProgressForm, name: 'progressForm' },
         { path: '/classifyForm', component: ClassifyForm, name: 'classifyForm' },
         { path: '/monthlySales', component: MonthlySales, name: 'monthlySales' },
+        { path: '/salesBrands', component: SalesBrands, name: 'salesBrands' },
         { path: '/daySales', component: DaySales, name: 'daySales' }
       ]
     }

@@ -6,7 +6,7 @@
             <i class="icon iconfont icon-fanhui"></i>
           </div>
         </div>
-        <div><slot>顶部</slot></div>
+        <div><span v-cloak>{{title}}</span></div>
         <div class="icon"><slot name="right"></slot></div>
     </div>
 </template>
@@ -18,6 +18,10 @@ export default {
     isGoback: {
       type: Boolean,
       default: true
+    },
+    title: {
+      type: String,
+      default: ''
     }
   },
   methods: {
