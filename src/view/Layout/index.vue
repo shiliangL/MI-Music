@@ -1,12 +1,12 @@
 <template>
     <!-- layout页面 -->
     <div class="layout">
-      <AppHeader> </AppHeader>
+      <AppHeader :isGoback="false"> </AppHeader>
       <div class="flexBox" v-for="(item,index) in page.data" :key="index">
           <div class="item">
               <a :href="item.path">
                   <div>
-                      <!-- <img src="../../assets/icons/data.png" alt=""> -->
+                      <img src="../../assets/icons/data.png" alt="">
                   </div>
                   <div v-cloak> {{item.name}} </div>
               </a>

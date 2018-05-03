@@ -1,6 +1,11 @@
 <template>
     <div class="AppHeader">
-        <div class="icon"> <slot name="left"> <div v-show="visible" @click="goback">返回</div></slot> </div>
+        <div class="icon">
+          <div v-if="isGoback" @click="goback">
+            <!-- 返回 -->
+            <i class="icon iconfont icon-fanhui"></i>
+          </div>
+        </div>
         <div><slot>顶部</slot></div>
         <div class="icon"><slot name="right"></slot></div>
     </div>
@@ -9,22 +14,18 @@
 <script>
 export default {
   name: 'AppHeader',
-  methods: {
-    goback () {
-      if (this.$router.history.current.name !== 'Layout') {
-        this.$router.go(-1)
-      }
+  props: {
+    isGoback: {
+      type: Boolean,
+      default: true
     }
   },
-  computed: {
-    visible () {
-      if (this.$router.history.current.name === 'Layout') {
-        return false
-      } else {
-        return true
-      }
+  methods: {
+    goback () {
+      this.$router.go(-1)
     }
-  }
+  },
+  computed: {}
 }
 </script>
 
