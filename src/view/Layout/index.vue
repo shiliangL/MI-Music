@@ -2,7 +2,6 @@
     <!-- layout页面 -->
     <div class="layout">
       <AppHeader :isGoback="false" title="首页"> </AppHeader>
-
       <van-row>
         <van-col span="12" v-for="(item,index) in page.data" :key="index">
           <div class="item">

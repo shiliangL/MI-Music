@@ -1,8 +1,10 @@
 // 全局组件 服务 对象等
 import Vue from 'vue'
 import AppHeader from './AppHeader'
+import ScrollView from './ScrollView'
 const components = [
-  AppHeader
+  AppHeader,
+  ScrollView
 ]
 const install = (Vue, opts) => {
   components.map(component => {

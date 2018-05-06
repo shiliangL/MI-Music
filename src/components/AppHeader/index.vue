@@ -1,6 +1,6 @@
 <template>
-    <div class="AppHeader">
-        <div class="icon">
+    <div class="AppHeader" :class="{'backgroundTr':backgroundTr}">
+        <div class="icon goback">
           <div v-if="isGoback" @click="goback">
             <!-- 返回 -->
             <i class="icon iconfont icon-fanhui"></i>
@@ -22,6 +22,10 @@ export default {
     title: {
       type: String,
       default: ''
+    },
+    backgroundTr: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -51,5 +55,9 @@ export default {
     width: 40px;
     text-align: center;
   }
+}
+.backgroundTr{
+  background: transparent;
+  color: #007fff;
 }
 </style>

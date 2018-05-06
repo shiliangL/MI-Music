@@ -10,6 +10,7 @@ for (let i = 0; i < TotalPageSize; i++) {
     'id': '@string("number", 16)'
   }))
 }
+
 const Apis = {
   fetchSalesBrands (config) {
     const { page = 1,
